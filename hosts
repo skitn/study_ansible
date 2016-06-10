@@ -9,3 +9,6 @@ is_development=True
 # for apache
 apache_document_root=/vagrant/src/web
 apache_server_name=sandbox-devops-ansible3.dev
+
+[web]
+vagrant_vm1

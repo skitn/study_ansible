@@ -20,3 +20,5 @@
 
   - name: ntpdを起動、自動起動の有効化
     service: name=ntpd state=started enabled=yes
+
+- include: web.yml
