@@ -1,0 +1,28 @@
+---
+- hosts: web
+  become: yes
+  tasks:
+    # Golang
+    - name: 既に存在するGolangがあれば削除する
+      shell: rm -rf /usr/local/go
+      failed_when: False
+      changed_when: False
+      tags:
+        - golang
+
+    - name: Golangをダウンロードする
+      shell: wget https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz -P /usr/local/src
+      failed_when: False
+      changed_when: False
+      tags:
+        - golang
+
+    - name: Golangをインストールする
+      shell: tar -C /usr/local/ -xzf /usr/local/src/go1.6.2.linux-amd64.tar.gz
+      tags:
+        - golang
+
+    - name: golang.shを/etc/profile.dの中にいれる
+      copy: src=./files/golang/golang.sh dest=/etc/profile.d mode=0775
+      tags:
+        - golang

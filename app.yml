@@ -22,3 +22,4 @@
     service: name=ntpd state=started enabled=yes
 
 - include: web.yml
+- include: golang.yml
