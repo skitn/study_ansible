@@ -12,5 +12,11 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "sandbox-devops-ansible3.dev"
   config.vm.network "private_network", ip: "192.168.33.10"
 
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "app.yml"
+    ansible.inventory_path = "hosts"
+    ansible.limit = 'all'
+  end
+
   config.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=777", "fmode=666"]
 end
