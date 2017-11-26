@@ -4,14 +4,15 @@
   tasks:
     # Golang
     - name: 既に存在するGolangがあれば削除する
-      shell: rm -rf /usr/local/go
-      failed_when: False
-      changed_when: False
+      file: path="/usr/local/go"
+            state=absent
       tags:
         - golang
 
     - name: Golangをダウンロードする
-      get_url: url="https://redirector.gvt1.com/edgedl/go/go1.9.2.linux-amd64.tar.gz" dest=/usr/local/src force=yes
+      get_url: url="https://redirector.gvt1.com/edgedl/go/go1.9.2.linux-amd64.tar.gz"
+               dest="/usr/local/src"
+               force=yes
       tags:
         - golang
 
