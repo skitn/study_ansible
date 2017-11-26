@@ -18,5 +18,5 @@ Vagrant.configure(2) do |config|
     ansible.limit = 'all'
   end
 
-  config.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=777", "fmode=666"]
+  config.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=777", "fmode=755"]
 end
