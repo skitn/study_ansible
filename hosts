@@ -6,9 +6,5 @@ ansible_ssh_user=vagrant
 ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
 is_development=True
 
-# for apache
-apache_document_root=/vagrant/src/web
-apache_server_name=sandbox-devops-ansible3.dev
-
 [web]
 vagrant_vm1

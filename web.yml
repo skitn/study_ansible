@@ -1,6 +1,12 @@
 ---
 - hosts: web
   become: yes
+  vars:
+    apache_documents:
+      - document_root: "/vagrant/src/web"
+        server_name: "sandbox-devops-ansible3.dev"
+      - document_root: "/vagrant/src/web2"
+        server_name: "sandbox-devops-ansible4.dev"
   tasks:
     # Apache
     - name: Apacheをインストール
