@@ -11,14 +11,12 @@
         - golang
 
     - name: Golangをダウンロードする
-      shell: wget https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz -P /usr/local/src
-      failed_when: False
-      changed_when: False
+      get_url: url="https://redirector.gvt1.com/edgedl/go/go1.9.2.linux-amd64.tar.gz" dest=/usr/local/src force=yes
       tags:
         - golang
 
     - name: Golangをインストールする
-      shell: tar -C /usr/local/ -xzf /usr/local/src/go1.6.2.linux-amd64.tar.gz
+      shell: tar -C /usr/local/ -xzf /usr/local/src/go1.9.2.linux-amd64.tar.gz
       tags:
         - golang
 
